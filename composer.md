@@ -5,7 +5,7 @@ layout: 2017/sheet
 weight: -1
 authors:
   - github: benolot
-updated: 2018-03-06
+updated: 2020-02-23
 description: |
   Basic guide on how to use Composer, the PHP Package manager.
 ---
@@ -54,6 +54,21 @@ This command changes only the `composer.lock` file.
 | `composer require vendor/package --dev` | Adds `package` from `vendor` to composer.json's `require-dev` section and installs it.            |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+### Passing versions
+
+| Command                                         | Description                              |
+| ----------------------------------------------- | ---------------------------------------- |
+| `composer require vendor/pkg "1.3.2"`           | Installs `1.3.2`                         |
+| `composer require vendor/pkg ">=1.3.2"`         | Above or equal `1.3.2`                   |
+| `composer require vendor/pkg "<1.3.2"`          | Below `1.3.2`                            |
+| `composer require vendor/pkg "1.3.*"`           | Latest of `>=1.3.0 <1.4.0`               |
+| `composer require vendor/pkg "~1.3.2"`          | Latest of `>=1.3.2 <1.4.0`               |
+| `composer require vendor/pkg "~1.3"`            | Latest of `>=1.3.0 <2.0.0`               |
+| `composer require vendor/pkg "^1.3.2"`          | Latest of `>=1.3.2 <2.0.0`               |
+| `composer require vendor/pkg "^1.3"`            | Latest of `>=1.3.0 <2.0.0`               |
+| `composer require vendor/pkg "^0.3.2"`          | Latest of `>=0.3.0 <0.4.0` (for pre-1.0) |
+| `composer require vendor/pkg "dev-BRANCH_NAME"` | From the branch `BRANCH_NAME`            |
 
 ### Removing packages
 
